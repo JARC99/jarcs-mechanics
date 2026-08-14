@@ -40,7 +40,7 @@ class Vector:
     def dot(self, other):
         return (self.u * other.u) + (self.v * other.v)
 
-    def projection(self, direction):
+    def projection_over(self, direction):
         return self.dot(direction.normalized())
 
     def cross(self, other):
