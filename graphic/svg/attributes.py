@@ -22,5 +22,5 @@ def font_size(size: float):
 def font_family(font: str):
     return f'font-family="{font}"'
 
-def attrs_to_string(attrs_list: [str]):
+def attrs_to_str(attrs_list: [str]):
     return ' '.join(attrs_list)
