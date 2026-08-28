@@ -17,7 +17,18 @@ def svg_content(
         .replace("{{height}}", str(size.height)) \
         .replace("{{content}}", "\n\t".join(primitives)) \
         .replace("{{viewBox}}", __viewbox_from_rect(viewbox_rect)) \
-        .replace("{{tranfs}}", __transf_matrix_vals(transform))
+        .replace("{{transf}}", __transf_matrix_vals(transform))
 
 def __default_viewbox_rect(size):
     return Rect(Point(0,0), size)
+
+def __viewbox_from_rect(rect):
+    x = rect.origin.x
+    y = rect.origin.y
+    width = rect.size.width
+    height = rect.size.height
+
+    return f"{x} {y} {width} {height}"
+
+def __transf_matrix_vals(t: AffineTransform):
+    return f"{t.sx} {t.shy} {t.shx} {t.sy} {t.tx} {t.ty}"
